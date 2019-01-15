@@ -137,6 +137,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcj-xh-9Sx">
+                                <rect key="frame" x="100" y="144" width="177" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="3oQ-c6-2dI" kind="show" id="ddV-V8-jm7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -181,12 +189,205 @@
             </objects>
             <point key="canvasLocation" x="132" y="131.78410794602701"/>
         </scene>
+        <!--Second View Controller-->
+        <scene sceneID="bvz-Ho-5wS">
+            <objects>
+                <viewController id="3oQ-c6-2dI" customClass="secondViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXA-GT-HuR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-K7-3oh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="pLg-pt-cWr">
+                                <rect key="frame" x="82" y="47" width="92" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="activeBet" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-V5-lQN">
+                                <rect key="frame" x="15" y="245" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-kJ-QZD">
+                                <rect key="frame" x="32" y="272" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rr-Nm-Zlh">
+                                <rect key="frame" x="109" y="360" width="58" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="Deal-1"/>
+                                <connections>
+                                    <action selector="dealButton:" destination="3oQ-c6-2dI" eventType="touchUpInside" id="onY-IR-2l7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-AM-Ja1">
+                                <rect key="frame" x="207" y="360" width="58" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Stop-1"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="3oQ-c6-2dI" eventType="touchUpInside" id="FYr-Yp-YAr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R5-e3-Jw4">
+                                <rect key="frame" x="163.5" y="432" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-XW-qHL">
+                                <rect key="frame" x="163" y="206" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background Card" translatesAutoresizingMaskIntoConstraints="NO" id="9TW-Wd-6Dc">
+                                <rect key="frame" x="112" y="47" width="92" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background Card" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-YB-PO3">
+                                <rect key="frame" x="142" y="47" width="92" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background Card" translatesAutoresizingMaskIntoConstraints="NO" id="vq7-6a-PKH">
+                                <rect key="frame" x="172" y="47" width="92" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background Card" translatesAutoresizingMaskIntoConstraints="NO" id="wVq-BA-hnW">
+                                <rect key="frame" x="202" y="47" width="92" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-0F-gkU">
+                                <rect key="frame" x="71" y="478" width="115" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="nYL-Pt-IVO"/>
+                                    <constraint firstAttribute="width" constant="115" id="sMC-df-cs3"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-bu-2N6">
+                                <rect key="frame" x="101" y="478" width="115" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="2gK-K0-Y4v"/>
+                                    <constraint firstAttribute="width" constant="115" id="he1-wb-GUa"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="meb-yO-XmP">
+                                <rect key="frame" x="131" y="478" width="115" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="GSJ-L2-L63"/>
+                                    <constraint firstAttribute="height" constant="169" id="Xaq-mD-bQZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="8zw-Pu-PxJ">
+                                <rect key="frame" x="161" y="478" width="115" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="qCY-O8-0vi"/>
+                                    <constraint firstAttribute="height" constant="169" id="zpa-eG-Oay"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card 6" translatesAutoresizingMaskIntoConstraints="NO" id="WO0-dV-mi8">
+                                <rect key="frame" x="191" y="478" width="115" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="jA8-3a-ptB"/>
+                                    <constraint firstAttribute="height" constant="169" id="qRu-Iz-dGu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="meb-yO-XmP" firstAttribute="leading" secondItem="d8z-Uy-EOh" secondAttribute="leading" constant="131" id="86P-qv-QRe"/>
+                            <constraint firstItem="N7A-bu-2N6" firstAttribute="leading" secondItem="d8z-Uy-EOh" secondAttribute="leading" constant="101" id="HmI-LO-1a3"/>
+                            <constraint firstItem="d8z-Uy-EOh" firstAttribute="bottom" secondItem="8zw-Pu-PxJ" secondAttribute="bottom" constant="20" id="Lr3-6L-eHA"/>
+                            <constraint firstItem="WO0-dV-mi8" firstAttribute="leading" secondItem="5A7-0F-gkU" secondAttribute="trailing" constant="5" id="PHZ-9o-hCX"/>
+                            <constraint firstItem="d8z-Uy-EOh" firstAttribute="bottom" secondItem="N7A-bu-2N6" secondAttribute="bottom" constant="20" id="aHB-zM-GYc"/>
+                            <constraint firstItem="d8z-Uy-EOh" firstAttribute="bottom" secondItem="meb-yO-XmP" secondAttribute="bottom" constant="20" id="bCP-Ex-TDo"/>
+                            <constraint firstItem="d8z-Uy-EOh" firstAttribute="bottom" secondItem="WO0-dV-mi8" secondAttribute="bottom" constant="20" id="gOh-EO-3CP"/>
+                            <constraint firstItem="8zw-Pu-PxJ" firstAttribute="leading" secondItem="d8z-Uy-EOh" secondAttribute="leading" constant="161" id="iPb-8u-mvR"/>
+                            <constraint firstItem="d8z-Uy-EOh" firstAttribute="bottom" secondItem="5A7-0F-gkU" secondAttribute="bottom" constant="20" id="p11-xW-wrq"/>
+                            <constraint firstItem="5A7-0F-gkU" firstAttribute="leading" secondItem="d8z-Uy-EOh" secondAttribute="leading" constant="71" id="szH-q7-8zr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d8z-Uy-EOh"/>
+                    </view>
+                    <connections>
+                        <outlet property="activeBetLabel" destination="AQJ-kJ-QZD" id="QHC-fp-DZT"/>
+                        <outlet property="dealerCount" destination="o1k-XW-qHL" id="WAW-bA-lm0"/>
+                        <outlet property="dealerFifthCard" destination="wVq-BA-hnW" id="Z3C-mC-geI"/>
+                        <outlet property="dealerFirstCard" destination="pLg-pt-cWr" id="gnG-3s-ju8"/>
+                        <outlet property="dealerFourthCard" destination="vq7-6a-PKH" id="fxO-Ul-j88"/>
+                        <outlet property="dealerSecondCard" destination="9TW-Wd-6Dc" id="YK1-QV-yXl"/>
+                        <outlet property="dealerThirdCard" destination="6BA-YB-PO3" id="Yxq-o6-xDk"/>
+                        <outlet property="playerCount" destination="2R5-e3-Jw4" id="xdC-oT-gFI"/>
+                        <outlet property="playerFifthCard" destination="WO0-dV-mi8" id="IGN-ju-zn2"/>
+                        <outlet property="playerFirstCard" destination="5A7-0F-gkU" id="fSm-Ub-zuc"/>
+                        <outlet property="playerFourthCard" destination="8zw-Pu-PxJ" id="XMh-Pe-0Qh"/>
+                        <outlet property="playerSecondCard" destination="N7A-bu-2N6" id="qEL-3Q-lMe"/>
+                        <outlet property="playerThirdCard" destination="meb-yO-XmP" id="HXc-ma-pwT"/>
+                        <segue destination="JEX-Ud-EdW" kind="show" identifier="resultSegue" id="KHH-Qd-gca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abD-QM-FS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="131.78410794602701"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Oey-uK-B81">
+            <objects>
+                <viewController id="JEX-Ud-EdW" customClass="ResultViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VpO-T6-9Gk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-pW-Xdh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mi-fs-sg7">
+                                <rect key="frame" x="139" y="491" width="102" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="JEX-Ud-EdW" eventType="touchUpInside" id="QMU-TS-7tZ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="kUq-vo-emL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVq-WO-CHh">
+                                <rect key="frame" x="55" y="277" width="270" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yQV-4h-DZI"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="hVq-WO-CHh" id="lcV-yt-Znu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Um-9t-nay" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860" y="131.78410794602701"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BG" width="750" height="1334"/>
+        <image name="Background Card" width="233" height="340"/>
         <image name="Balance" width="44" height="44"/>
+        <image name="Card 6" width="242" height="340"/>
+        <image name="Deal-1" width="58" height="57"/>
         <image name="Deck" width="430" height="602"/>
         <image name="Reset" width="116" height="116"/>
+        <image name="Stop-1" width="58" height="57"/>
         <image name="activeBet" width="166" height="166"/>
         <image name="allin" width="116" height="116"/>
         <image name="blackMarker" width="166" height="166"/>

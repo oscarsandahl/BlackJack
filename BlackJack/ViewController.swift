@@ -8,47 +8,43 @@
 
 import UIKit
 
+var activeBet = 0
+var playerBalance = 990
+
 class ViewController: UIViewController {
 
     let blueMarker = 10
     let greenMarker = 50
     let blackMarker = 100
     
-    var playerBalance = 990
-    
-    var activeBet = 0
-    
     @IBAction func blueMarker(_ sender: UIButton) {
-        activeBet += blueMarker
-        playerBalance -= blueMarker
-        activeBetLabel.text = String(activeBet)
-        balance.text = String(playerBalance)
-        print(activeBet)
+        if playerBalance >= 10 {
+            activeBet += blueMarker
+            playerBalance -= blueMarker
+            updatelabel()
+        }
     }
     
     @IBAction func greenMarker(_ sender: UIButton) {
-        activeBet += greenMarker
-        playerBalance -= greenMarker
-        activeBetLabel.text = String(activeBet)
-        balance.text = String(playerBalance)
-        print(activeBet)
+        if playerBalance >= 50 {
+            activeBet += greenMarker
+            playerBalance -= greenMarker
+            updatelabel()
+        }
     }
     
     @IBAction func blackMarker(_ sender: UIButton) {
-        activeBet += blackMarker
-        playerBalance -= blackMarker
-        activeBetLabel.text = String(activeBet)
-        balance.text = String(playerBalance)
-        print(activeBet)
+        if playerBalance >= 100 {
+            activeBet += blackMarker
+            playerBalance -= blackMarker
+            updatelabel()
+        }
     }
     
     @IBAction func allMoney(_ sender: UIButton) {
         activeBet += playerBalance
         playerBalance = 0
-        print("balansen är nu \(playerBalance)")
-        print("bettet är \(activeBet)")
-        balance.text = String(playerBalance)
-        activeBetLabel.text = String(activeBet)
+        updatelabel()
     }
     
     @IBOutlet weak var balance: UILabel!
@@ -58,7 +54,6 @@ class ViewController: UIViewController {
         activeBet = 0
         balance.text = String(playerBalance)
         activeBetLabel.text = String(activeBet)
-        print(activeBet)
     }
     
     @IBOutlet weak var activeBetLabel: UILabel!
@@ -70,10 +65,11 @@ class ViewController: UIViewController {
         balance.text = String(playerBalance)
     }
     
-    func ettnamn() {
-        
+    func updatelabel() {
+        activeBetLabel.text = String(activeBet)
+        balance.text = String(playerBalance)
+//      print(activeBet)
     }
-
 
 }
 
