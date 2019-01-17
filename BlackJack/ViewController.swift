@@ -18,32 +18,20 @@ class ViewController: UIViewController {
     let blackMarker = 100
     
     @IBAction func blueMarker(_ sender: UIButton) {
-        if playerBalance >= 10 {
-            activeBet += blueMarker
-            playerBalance -= blueMarker
-            updatelabel()
-        }
+        placingBet(markerValue: blueMarker)
     }
     
     @IBAction func greenMarker(_ sender: UIButton) {
-        if playerBalance >= 50 {
-            activeBet += greenMarker
-            playerBalance -= greenMarker
-            updatelabel()
-        }
+        placingBet(markerValue: greenMarker)
     }
     
     @IBAction func blackMarker(_ sender: UIButton) {
-        if playerBalance >= 100 {
-            activeBet += blackMarker
-            playerBalance -= blackMarker
-            updatelabel()
-        }
+        placingBet(markerValue: blackMarker)
     }
     
     @IBAction func allMoney(_ sender: UIButton) {
         activeBet += playerBalance
-        playerBalance = 0
+        playerBalance -= activeBet
         updatelabel()
     }
     
@@ -52,23 +40,31 @@ class ViewController: UIViewController {
     @IBAction func reset(_ sender: UIButton) {
         playerBalance += activeBet
         activeBet = 0
-        balance.text = String(playerBalance)
-        activeBetLabel.text = String(activeBet)
+//        balance.text = String(playerBalance)
+//        activeBetLabel.text = String(activeBet)
+        updatelabel()
     }
     
     @IBOutlet weak var activeBetLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //activeBetLabel.text = String(activeBet)
         activeBetLabel.text = "0"
-        balance.text = String(playerBalance)
+        balance.text = String("$\(playerBalance)")
     }
     
     func updatelabel() {
         activeBetLabel.text = String(activeBet)
-        balance.text = String(playerBalance)
+        balance.text = String("$\(playerBalance)")
 //      print(activeBet)
+    }
+    
+    func placingBet(markerValue : Int) {
+        if playerBalance >= markerValue {
+            activeBet += markerValue
+            playerBalance -= markerValue
+            updatelabel()
+        }
     }
 
 }

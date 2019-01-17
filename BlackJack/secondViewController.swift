@@ -94,22 +94,28 @@ class secondViewController: UIViewController {
         playerBalance += activeBet
         activeBetLabel.text = String(activeBet)
         segueMessage = 1
-        performSegue(withIdentifier: "resultSegue", sender: self)
+        pushSegue()
         print("spelare har vunnit")
     }
     
     func loose() {
         segueMessage = 3
         activeBetLabel.text = String(activeBet)
-        performSegue(withIdentifier: "resultSegue", sender: self)
+        pushSegue()
         print("spelare har förlorat")
     }
     
     func draw() {
         segueMessage = 2
         playerBalance += activeBet
-        performSegue(withIdentifier: "resultSegue", sender: self)
+        pushSegue()
         print("lika")
+    }
+    
+    func pushSegue() {
+        DispatchQueue.main.asyncAfter(deadline:.now() + 0.5, execute: {
+            self.performSegue(withIdentifier: "resultSegue", sender: self)
+        })
     }
     
     func displayCard() {
@@ -137,109 +143,25 @@ class secondViewController: UIViewController {
     
     func pointCalculator() {
         switch (myDeck[randomDeckIndex]) {
-        case "10":
-            player_Count += 10
-        case "11":
+        case "11", "21", "31", "41":
             player_Count += 1
-        case "12":
+        case "12", "22", "32", "42":
             player_Count += 2
-        case "13":
+        case "13", "23", "33", "43":
             player_Count += 3
-        case "14":
+        case "14", "24", "34", "44":
             player_Count += 4
-        case "15":
+        case "15", "25", "35", "45":
             player_Count += 5
-        case "16":
+        case "16", "26", "36", "46":
             player_Count += 6
-        case "17":
+        case "17", "27", "37", "47":
             player_Count += 7
-        case "18":
+        case "18", "28", "38", "48":
             player_Count += 8
-        case "19":
+        case "19", "29", "39", "49":
             player_Count += 9
-        case "20":
-            player_Count += 10
-        case "21":
-            player_Count += 1
-        case "22":
-            player_Count += 2
-        case "23":
-            player_Count += 3
-        case "24":
-            player_Count += 4
-        case "25":
-            player_Count += 5
-        case "26":
-            player_Count += 6
-        case "27":
-            player_Count += 7
-        case "28":
-            player_Count += 8
-        case "29":
-            player_Count += 9
-        case "30":
-            player_Count += 10
-        case "31":
-            player_Count += 1
-        case "32":
-            player_Count += 2
-        case "33":
-            player_Count += 3
-        case "34":
-            player_Count += 4
-        case "35":
-            player_Count += 5
-        case "36":
-            player_Count += 6
-        case "37":
-            player_Count += 7
-        case "38":
-            player_Count += 8
-        case "39":
-            player_Count += 9
-        case "40":
-            player_Count += 10
-        case "41":
-            player_Count += 1
-        case "42":
-            player_Count += 2
-        case "43":
-            player_Count += 3
-        case "44":
-            player_Count += 4
-        case "45":
-            player_Count += 5
-        case "46":
-            player_Count += 6
-        case "47":
-            player_Count += 7
-        case "48":
-            player_Count += 8
-        case "49":
-            player_Count += 9
-        case "hJ":
-            player_Count += 10
-        case "hQ":
-            player_Count += 10
-        case "hK":
-            player_Count += 10
-        case "kJ":
-            player_Count += 10
-        case "kQ":
-            player_Count += 10
-        case "kK":
-            player_Count += 10
-        case "sJ":
-            player_Count += 10
-        case "sQ":
-            player_Count += 10
-        case "sK":
-            player_Count += 10
-        case "rJ":
-            player_Count += 10
-        case "rQ":
-            player_Count += 10
-        case "rK":
+        case "hJ", "hQ", "hK", "kJ", "kQ", "kK", "sJ", "sQ", "sK", "rJ", "rQ", "rK", "10", "20", "30", "40":
             player_Count += 10
         default:
             print("hoppat ur switch")
@@ -281,109 +203,25 @@ class secondViewController: UIViewController {
     
     func dealer_pointCalculator() {
         switch (myDeck[randomDeckIndex]) {
-        case "10":
-            dealer_Count += 10
-        case "11":
+        case "11", "21", "31", "41":
             dealer_Count += 1
-        case "12":
+        case "12", "22", "32", "42":
             dealer_Count += 2
-        case "13":
+        case "13", "23", "33", "43":
             dealer_Count += 3
-        case "14":
+        case "14", "24", "34", "44":
             dealer_Count += 4
-        case "15":
+        case "15", "25", "35", "45":
             dealer_Count += 5
-        case "16":
+        case "16", "26", "36", "46":
             dealer_Count += 6
-        case "17":
+        case "17", "27", "37", "47":
             dealer_Count += 7
-        case "18":
+        case "18", "28", "38", "48":
             dealer_Count += 8
-        case "19":
+        case "19", "29", "39", "49":
             dealer_Count += 9
-        case "20":
-            dealer_Count += 10
-        case "21":
-            dealer_Count += 1
-        case "22":
-            dealer_Count += 2
-        case "23":
-            dealer_Count += 3
-        case "24":
-            dealer_Count += 4
-        case "25":
-            dealer_Count += 5
-        case "26":
-            dealer_Count += 6
-        case "27":
-            dealer_Count += 7
-        case "28":
-            dealer_Count += 8
-        case "29":
-            dealer_Count += 9
-        case "30":
-            dealer_Count += 10
-        case "31":
-            dealer_Count += 1
-        case "32":
-            dealer_Count += 2
-        case "33":
-            dealer_Count += 3
-        case "34":
-            dealer_Count += 4
-        case "35":
-            dealer_Count += 5
-        case "36":
-            dealer_Count += 6
-        case "37":
-            dealer_Count += 7
-        case "38":
-            dealer_Count += 8
-        case "39":
-            dealer_Count += 9
-        case "40":
-            dealer_Count += 10
-        case "41":
-            dealer_Count += 1
-        case "42":
-            dealer_Count += 2
-        case "43":
-            dealer_Count += 3
-        case "44":
-            dealer_Count += 4
-        case "45":
-            dealer_Count += 5
-        case "46":
-            dealer_Count += 6
-        case "47":
-            dealer_Count += 7
-        case "48":
-            dealer_Count += 8
-        case "49":
-            dealer_Count += 9
-        case "hJ":
-            dealer_Count += 10
-        case "hQ":
-            dealer_Count += 10
-        case "hK":
-            dealer_Count += 10
-        case "kJ":
-            dealer_Count += 10
-        case "kQ":
-            dealer_Count += 10
-        case "kK":
-            dealer_Count += 10
-        case "sJ":
-            dealer_Count += 10
-        case "sQ":
-            dealer_Count += 10
-        case "sK":
-            dealer_Count += 10
-        case "rJ":
-            dealer_Count += 10
-        case "rQ":
-            dealer_Count += 10
-        case "rK":
+        case "hJ", "hQ", "hK", "kJ", "kQ", "kK", "sJ", "sQ", "sK", "rJ", "rQ", "rK", "10", "20", "30", "40":
             dealer_Count += 10
         default:
             print("hoppat ur switch")

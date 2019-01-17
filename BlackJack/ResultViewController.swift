@@ -13,12 +13,10 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
     
-    @IBAction func backButton(_ sender: Any) {
-        activeBet = 0
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activeBet = 0
         
         if segueMessage == 1 {
             resultLabel.text = "Winner!"
@@ -27,6 +25,10 @@ class ResultViewController: UIViewController {
         } else if segueMessage == 3 {
             resultLabel.text = "Looser.."
         }
+        
+        DispatchQueue.main.asyncAfter(deadline:.now() + 1.0, execute: {
+            self.performSegue(withIdentifier: "backSegue", sender: self)
+        })
        
     }
 
