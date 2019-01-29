@@ -23,10 +23,10 @@ class ResultViewController: UIViewController {
         } else if segueMessage == 2 {
             resultLabel.text = "Draw."
         } else if segueMessage == 3 {
-            resultLabel.text = "Looser.."
+            resultLabel.text = "Loser.."
         }
         
-        DispatchQueue.main.asyncAfter(deadline:.now() + 1.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline:.now() + 1.5, execute: {
             self.performSegue(withIdentifier: "backSegue", sender: self)
         })
        

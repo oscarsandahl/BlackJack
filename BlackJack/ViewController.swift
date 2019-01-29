@@ -9,7 +9,7 @@
 import UIKit
 
 var activeBet = 0
-var playerBalance = 990
+var playerBalance = 1000
 
 class ViewController: UIViewController {
 
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     @IBAction func allMoney(_ sender: UIButton) {
         activeBet += playerBalance
-        playerBalance -= activeBet
+        playerBalance = 0
         updatelabel()
     }
     
@@ -40,8 +40,6 @@ class ViewController: UIViewController {
     @IBAction func reset(_ sender: UIButton) {
         playerBalance += activeBet
         activeBet = 0
-//        balance.text = String(playerBalance)
-//        activeBetLabel.text = String(activeBet)
         updatelabel()
     }
     
@@ -49,8 +47,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activeBetLabel.text = "0"
-        balance.text = String("$\(playerBalance)")
+        updatelabel()
+//        activeBetLabel.text = "0"
+//        balance.text = String("$\(playerBalance)")
     }
     
     func updatelabel() {

@@ -113,7 +113,7 @@ class secondViewController: UIViewController {
     }
     
     func pushSegue() {
-        DispatchQueue.main.asyncAfter(deadline:.now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline:.now() + 0.3, execute: {
             self.performSegue(withIdentifier: "resultSegue", sender: self)
         })
     }
