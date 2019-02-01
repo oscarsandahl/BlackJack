@@ -48,14 +48,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updatelabel()
-//        activeBetLabel.text = "0"
-//        balance.text = String("$\(playerBalance)")
     }
     
     func updatelabel() {
         activeBetLabel.text = String(activeBet)
         balance.text = String("$\(playerBalance)")
-//      print(activeBet)
     }
     
     func placingBet(markerValue : Int) {
