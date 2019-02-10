@@ -8,38 +8,40 @@
 
 import UIKit
 
-var activeBet = 0
-var playerBalance = 1000
+var newPlayer = Player()
+var theDealer = Dealer()
+var myDeck = Deck()
 
 class ViewController: UIViewController {
-
-    let blueMarker = 10
-    let greenMarker = 50
-    let blackMarker = 100
+    
+    let blueMarker = Marker(value: 10)
+    let greenMarker = Marker(value: 50)
+    let blackMarker = Marker(value: 100)
     
     @IBAction func blueMarker(_ sender: UIButton) {
-        placingBet(markerValue: blueMarker)
+        blueMarker.placingBet()
+        updatelabel()
     }
     
     @IBAction func greenMarker(_ sender: UIButton) {
-        placingBet(markerValue: greenMarker)
+        greenMarker.placingBet()
+        updatelabel()
     }
     
     @IBAction func blackMarker(_ sender: UIButton) {
-        placingBet(markerValue: blackMarker)
+        blackMarker.placingBet()
+        updatelabel()
     }
     
     @IBAction func allMoney(_ sender: UIButton) {
-        activeBet += playerBalance
-        playerBalance = 0
+        newPlayer.betAllMoney()
         updatelabel()
     }
     
     @IBOutlet weak var balance: UILabel!
     
     @IBAction func reset(_ sender: UIButton) {
-        playerBalance += activeBet
-        activeBet = 0
+        newPlayer.resetBet()
         updatelabel()
     }
     
@@ -47,20 +49,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myDeck = Deck()
+        newPlayer.activeBet = 0
+        newPlayer.pointCount = 0
+        newPlayer.cardCount = 0
+        theDealer.pointCount = 0
+        theDealer.cardCount = 0
         updatelabel()
     }
     
     func updatelabel() {
-        activeBetLabel.text = String(activeBet)
-        balance.text = String("$\(playerBalance)")
-    }
-    
-    func placingBet(markerValue : Int) {
-        if playerBalance >= markerValue {
-            activeBet += markerValue
-            playerBalance -= markerValue
-            updatelabel()
-        }
+        activeBetLabel.text = String(newPlayer.activeBet)
+        balance.text = String("$\(newPlayer.balance)")
     }
 
 }

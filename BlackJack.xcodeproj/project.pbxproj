@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834B1B6A220443B600996C56 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B1B69220443B600996C56 /* Player.swift */; };
+		834B1B6C220443C400996C56 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B1B6B220443C400996C56 /* Deck.swift */; };
+		834B1B6E220443CF00996C56 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B1B6D220443CF00996C56 /* Marker.swift */; };
+		834B1B7022044C7700996C56 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B1B6F22044C7700996C56 /* Dealer.swift */; };
+		835E5E5622097E1A00BF63AC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5E5522097E1A00BF63AC /* Card.swift */; };
 		8367727C21EA2825004BF526 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8367727B21EA2825004BF526 /* secondViewController.swift */; };
 		837A7B1021EE177000CE60D9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837A7B0F21EE177000CE60D9 /* ResultViewController.swift */; };
 		838256AF21E3D08300A102B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838256AE21E3D08300A102B1 /* AppDelegate.swift */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		834B1B69220443B600996C56 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		834B1B6B220443C400996C56 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		834B1B6D220443CF00996C56 /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		834B1B6F22044C7700996C56 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		835E5E5522097E1A00BF63AC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8367727B21EA2825004BF526 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 		837A7B0F21EE177000CE60D9 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		838256AB21E3D08200A102B1 /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,9 +88,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		834B1B682204439500996C56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				834B1B69220443B600996C56 /* Player.swift */,
+				834B1B6F22044C7700996C56 /* Dealer.swift */,
+				834B1B6B220443C400996C56 /* Deck.swift */,
+				835E5E5522097E1A00BF63AC /* Card.swift */,
+				834B1B6D220443CF00996C56 /* Marker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		838256A221E3D08200A102B1 = {
 			isa = PBXGroup;
 			children = (
+				834B1B682204439500996C56 /* Model */,
 				838256AD21E3D08200A102B1 /* BlackJack */,
 				838256C221E3D08500A102B1 /* BlackJackTests */,
 				838256CD21E3D08500A102B1 /* BlackJackUITests */,
@@ -262,10 +285,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834B1B6C220443C400996C56 /* Deck.swift in Sources */,
+				835E5E5622097E1A00BF63AC /* Card.swift in Sources */,
 				838256B121E3D08300A102B1 /* ViewController.swift in Sources */,
 				8367727C21EA2825004BF526 /* secondViewController.swift in Sources */,
 				838256AF21E3D08300A102B1 /* AppDelegate.swift in Sources */,
+				834B1B7022044C7700996C56 /* Dealer.swift in Sources */,
+				834B1B6A220443B600996C56 /* Player.swift in Sources */,
 				837A7B1021EE177000CE60D9 /* ResultViewController.swift in Sources */,
+				834B1B6E220443CF00996C56 /* Marker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
