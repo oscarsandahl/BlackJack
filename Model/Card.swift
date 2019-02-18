@@ -9,15 +9,23 @@
 import Foundation
 
 class Card {
-    var name : String
-    var value : Int
+    let suit : String
+    let name : String
+    let value : Int
     
-    init(cardName : String, cardValue : Int) {
+    init(cardSuit : String, cardName : String, cardValue : Int) {
+        suit = cardSuit
         name = cardName
         value = cardValue
     }
     
+    func getCardName() -> String {
+        return name
+    }
     
+    func getCardValue() ->  Int {
+        return value
+    }
     
     
     

@@ -29,16 +29,16 @@ class secondViewController: UIViewController {
     @IBOutlet weak var dealerFifthCard: UIImageView!
     
     @IBAction func dealButton(_ sender: UIButton) {
-        playerDeal()
+        myDeck.dealOneCard(anyPlayer: newPlayer)
+        displayPlayerCard()
         if newPlayer.pointCount > 21 {
             lose()
         }
-        
     }
-    
     @IBAction func stopButton(_ sender: UIButton) {
         while theDealer.pointCount < 22 {
-            dealerDeal()
+            myDeck.dealOneCard(anyPlayer: theDealer)
+            displayDealerCard()
             if theDealer.pointCount > 21 {
                 win()
                 break
@@ -54,15 +54,19 @@ class secondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hide_cards()
         activeBetLabel.text = String(newPlayer.activeBet)
         playerCount.text = String(newPlayer.pointCount)
         dealerCount.text = String(theDealer.pointCount)
         
-        hide_cards()
+        myDeck.dealOneCard(anyPlayer: newPlayer)
+        displayPlayerCard()
         
-        playerDeal()
-        playerDeal()
-        dealerDeal()
+        myDeck.dealOneCard(anyPlayer: newPlayer)
+        displayPlayerCard()
+        
+        myDeck.dealOneCard(anyPlayer: theDealer)
+        displayDealerCard()
     }
     
     func hide_cards() {
@@ -74,16 +78,6 @@ class secondViewController: UIViewController {
         dealerThirdCard.isHidden = true
         dealerFourthCard.isHidden = true
         dealerFifthCard.isHidden = true
-    }
-    
-    func playerDeal() {
-        myDeck.dealCard(player: newPlayer)
-        displayPlayerCard()
-    }
-    
-    func dealerDeal() {
-        myDeck.dealCard(player: theDealer)
-        displayDealerCard()
     }
     
     func win() {
@@ -108,46 +102,47 @@ class secondViewController: UIViewController {
     
     func displayPlayerCard() {
         switch newPlayer.cardCount {
-        case 0:
-            playerFirstCard.image = UIImage(named: myDeck.randomCard)
-            playerFirstCard.isHidden = false
         case 1:
-            playerSecondCard.image = UIImage(named: myDeck.randomCard)
-            playerSecondCard.isHidden = false
+            playerFirstCard.image = UIImage(named: newPlayer.hand[0].getCardName())
+            playerFirstCard.isHidden = false
         case 2:
-            playerThirdCard.image = UIImage(named: myDeck.randomCard)
-            playerThirdCard.isHidden = false
+            playerSecondCard.image = UIImage(named: newPlayer.hand[1].getCardName())
+            playerSecondCard.isHidden = false
         case 3:
-            playerFourthCard.image = UIImage(named: myDeck.randomCard)
-            playerFourthCard.isHidden = false
+            playerThirdCard.image = UIImage(named: newPlayer.hand[2].getCardName())
+            playerThirdCard.isHidden = false
         case 4:
-            playerFifthCard.image = UIImage(named: myDeck.randomCard)
+            playerFourthCard.image = UIImage(named: newPlayer.hand[3].getCardName())
+            playerFourthCard.isHidden = false
+        case 5:
+            playerFifthCard.image = UIImage(named: newPlayer.hand[4].getCardName())
             playerFifthCard.isHidden = false
         default:
-            print("Något oväntat hände i switchen")
+            print("playerDefault")
         }
-        newPlayer.cardCount += 1
         playerCount.text = String(newPlayer.pointCount)
     }
     
     func displayDealerCard() {
         switch theDealer.cardCount {
-        case 0:
-            dealerFirstCard.image = UIImage(named: myDeck.randomCard)
-            dealerFirstCard.isHidden = false
         case 1:
-            dealerSecondCard.image = UIImage(named: myDeck.randomCard)
-            dealerSecondCard.isHidden = false
+            dealerFirstCard.image = UIImage(named: theDealer.hand[0].getCardName())
+            dealerFirstCard.isHidden = false
         case 2:
-            dealerThirdCard.image = UIImage(named: myDeck.randomCard)
-            dealerThirdCard.isHidden = false
+            dealerSecondCard.image = UIImage(named: theDealer.hand[1].getCardName())
+            dealerSecondCard.isHidden = false
         case 3:
-            dealerFourthCard.image = UIImage(named: myDeck.randomCard)
+            dealerThirdCard.image = UIImage(named: theDealer.hand[2].getCardName())
+            dealerThirdCard.isHidden = false
+        case 4:
+            dealerFourthCard.image = UIImage(named: theDealer.hand[3].getCardName())
             dealerFourthCard.isHidden = false
+        case 5:
+            dealerFifthCard.image = UIImage(named: theDealer.hand[4].getCardName())
+            dealerFifthCard.isHidden = false
         default:
-            print("Något oväntat hände i switchen hos dealern")
+            print("dealerDefault")
         }
-        theDealer.cardCount += 1
         dealerCount.text = String(theDealer.pointCount)
     }
     

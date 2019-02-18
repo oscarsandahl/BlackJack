@@ -9,42 +9,123 @@
 import Foundation
 
 class Deck {
-    //ruter = 10-19, klöver = 20-29, hjärter = 30-39, spader = 40-49
-    var cards = ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "hJ", "hQ", "hK", "kJ", "kQ", "kK", "rJ", "rQ", "rK", "sJ", "sQ", "sK",]
-    var newDeck = [Card]()
-    var randomDeckIndex = 0
-    var randomCard = " "
+    var deckOfCards = [Card]()
     
-    func dealCard(player : Player) {
-        let size = UInt32(cards.count)
-        randomDeckIndex = Int(arc4random_uniform(size))
-        randomCard = String(cards[randomDeckIndex])
-        switch (cards[randomDeckIndex]) {
-        case "11", "21", "31", "41":
-            player.pointCount += 1
-        case "12", "22", "32", "42":
-            player.pointCount += 2
-        case "13", "23", "33", "43":
-            player.pointCount += 3
-        case "14", "24", "34", "44":
-            player.pointCount += 4
-        case "15", "25", "35", "45":
-            player.pointCount += 5
-        case "16", "26", "36", "46":
-            player.pointCount += 6
-        case "17", "27", "37", "47":
-            player.pointCount += 7
-        case "18", "28", "38", "48":
-            player.pointCount += 8
-        case "19", "29", "39", "49":
-            player.pointCount += 9
-        case "hJ", "hQ", "hK", "kJ", "kQ", "kK", "sJ", "sQ", "sK", "rJ", "rQ", "rK", "10", "20", "30", "40":
-            player.pointCount += 10
-        default:
-            print("hoppat ur switch")
-        }
-        cards.remove(at: randomDeckIndex)
+    init () {
+        let twoOfHearts = Card(cardSuit: "Hearts", cardName: "h2", cardValue: 2)
+        deckOfCards.append(twoOfHearts)
+        let threeOfHearts = Card(cardSuit: "Hearts", cardName: "h3", cardValue: 3)
+        deckOfCards.append(threeOfHearts)
+        let fourOfHearts = Card(cardSuit: "Hearts", cardName: "h4", cardValue: 4)
+        deckOfCards.append(fourOfHearts)
+        let fiveOfHearts = Card(cardSuit: "Hearts", cardName: "h5", cardValue: 5)
+        deckOfCards.append(fiveOfHearts)
+        let sixOfHearts = Card(cardSuit: "Hearts", cardName: "h6", cardValue: 6)
+        deckOfCards.append(sixOfHearts)
+        let sevenOfHearts = Card(cardSuit: "Hearts", cardName: "h7", cardValue: 7)
+        deckOfCards.append(sevenOfHearts)
+        let eightOfHearts = Card(cardSuit: "Hearts", cardName: "h8", cardValue: 8)
+        deckOfCards.append(eightOfHearts)
+        let nineOfHearts = Card(cardSuit: "Hearts", cardName: "h9", cardValue: 9)
+        deckOfCards.append(nineOfHearts)
+        let tenOfHearts = Card(cardSuit: "Hearts", cardName: "h10", cardValue: 10)
+        deckOfCards.append(tenOfHearts)
+        let jackOfHearts = Card(cardSuit: "Hearts", cardName: "hJ", cardValue: 10)
+        deckOfCards.append(jackOfHearts)
+        let queenOfHearts = Card(cardSuit: "Hearts", cardName: "hQ", cardValue: 10)
+        deckOfCards.append(queenOfHearts)
+        let kingOfHearts = Card(cardSuit: "Hearts", cardName: "hK", cardValue: 10)
+        deckOfCards.append(kingOfHearts)
+        let aceOfHearts = Card(cardSuit: "Hearts", cardName: "hA", cardValue: 10)
+        deckOfCards.append(aceOfHearts)
+        
+        let twoOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d2", cardValue: 2)
+        deckOfCards.append(twoOfDiamonds)
+        let threeOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d3", cardValue: 3)
+        deckOfCards.append(threeOfDiamonds)
+        let fourOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d4", cardValue: 4)
+        deckOfCards.append(fourOfDiamonds)
+        let fiveOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d5", cardValue: 5)
+        deckOfCards.append(fiveOfDiamonds)
+        let sixOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d6", cardValue: 6)
+        deckOfCards.append(sixOfDiamonds)
+        let sevenOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d7", cardValue: 7)
+        deckOfCards.append(sevenOfDiamonds)
+        let eightOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d8", cardValue: 8)
+        deckOfCards.append(eightOfDiamonds)
+        let nineOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d9", cardValue: 9)
+        deckOfCards.append(nineOfDiamonds)
+        let tenOfDiamonds = Card(cardSuit: "Diamonds", cardName: "d10", cardValue: 10)
+        deckOfCards.append(tenOfDiamonds)
+        let jackOfDiamonds = Card(cardSuit: "Diamonds", cardName: "dJ", cardValue: 10)
+        deckOfCards.append(jackOfDiamonds)
+        let queenOfDiamonds = Card(cardSuit: "Diamonds", cardName: "dQ", cardValue: 10)
+        deckOfCards.append(queenOfDiamonds)
+        let kingOfDiamonds = Card(cardSuit: "Diamonds", cardName: "dK", cardValue: 10)
+        deckOfCards.append(kingOfDiamonds)
+        let aceOfDiamonds = Card(cardSuit: "Diamonds", cardName: "dA", cardValue: 10)
+        deckOfCards.append(aceOfDiamonds)
+        
+        let twoOfSpades = Card(cardSuit: "Spades", cardName: "s2", cardValue: 2)
+        deckOfCards.append(twoOfSpades)
+        let threeOfSpades = Card(cardSuit: "Spades", cardName: "s3", cardValue: 3)
+        deckOfCards.append(threeOfSpades)
+        let fourOfSpades = Card(cardSuit: "Spades", cardName: "s4", cardValue: 4)
+        deckOfCards.append(fourOfSpades)
+        let fiveOfSpades = Card(cardSuit: "Spades", cardName: "s5", cardValue: 5)
+        deckOfCards.append(fiveOfSpades)
+        let sixOfSpades = Card(cardSuit: "Spades", cardName: "s6", cardValue: 6)
+        deckOfCards.append(sixOfSpades)
+        let sevenOfSpades = Card(cardSuit: "Spades", cardName: "s7", cardValue: 7)
+        deckOfCards.append(sevenOfSpades)
+        let eightOfSpades = Card(cardSuit: "Spades", cardName: "s8", cardValue: 8)
+        deckOfCards.append(eightOfSpades)
+        let nineOfSpades = Card(cardSuit: "Spades", cardName: "s9", cardValue: 9)
+        deckOfCards.append(nineOfSpades)
+        let tenOfSpades = Card(cardSuit: "Spades", cardName: "s10", cardValue: 10)
+        deckOfCards.append(tenOfSpades)
+        let jackOfSpades = Card(cardSuit: "Spades", cardName: "sJ", cardValue: 10)
+        deckOfCards.append(jackOfSpades)
+        let queenOfSpades = Card(cardSuit: "Spades", cardName: "sQ", cardValue: 10)
+        deckOfCards.append(queenOfSpades)
+        let kingOfSpades = Card(cardSuit: "Spades", cardName: "sK", cardValue: 10)
+        deckOfCards.append(kingOfSpades)
+        let aceOfSpades = Card(cardSuit: "Spades", cardName: "sA", cardValue: 10)
+        deckOfCards.append(aceOfSpades)
+        
+        let twoOfClubs = Card(cardSuit: "Clubs", cardName: "c2", cardValue: 2)
+        deckOfCards.append(twoOfClubs)
+        let threeOfClubs = Card(cardSuit: "Clubs", cardName: "c3", cardValue: 3)
+        deckOfCards.append(threeOfClubs)
+        let fourOfClubs = Card(cardSuit: "Clubs", cardName: "c4", cardValue: 4)
+        deckOfCards.append(fourOfClubs)
+        let fiveOfClubs = Card(cardSuit: "Clubs", cardName: "c5", cardValue: 5)
+        deckOfCards.append(fiveOfClubs)
+        let sixOfClubs = Card(cardSuit: "Clubs", cardName: "c6", cardValue: 6)
+        deckOfCards.append(sixOfClubs)
+        let sevenOfClubs = Card(cardSuit: "Clubs", cardName: "c7", cardValue: 7)
+        deckOfCards.append(sevenOfClubs)
+        let eightOfClubs = Card(cardSuit: "Clubs", cardName: "c8", cardValue: 8)
+        deckOfCards.append(eightOfClubs)
+        let nineOfClubs = Card(cardSuit: "Clubs", cardName: "c9", cardValue: 9)
+        deckOfCards.append(nineOfClubs)
+        let tenOfClubs = Card(cardSuit: "Clubs", cardName: "c10", cardValue: 10)
+        deckOfCards.append(tenOfClubs)
+        let jackOfClubs = Card(cardSuit: "Clubs", cardName: "cJ", cardValue: 10)
+        deckOfCards.append(jackOfClubs)
+        let queenOfClubs = Card(cardSuit: "Clubs", cardName: "cQ", cardValue: 10)
+        deckOfCards.append(queenOfClubs)
+        let kingOfClubs = Card(cardSuit: "Clubs", cardName: "cK", cardValue: 10)
+        deckOfCards.append(kingOfClubs)
+        let aceOfClubs = Card(cardSuit: "Clubs", cardName: "cA", cardValue: 10)
+        deckOfCards.append(aceOfClubs)
+        
+        deckOfCards.shuffle()
     }
     
+    func dealOneCard(anyPlayer : Player) {
+        deckOfCards.shuffle()
+        anyPlayer.addCardToHand(anyCard: deckOfCards.removeLast())
+    }
     
 }

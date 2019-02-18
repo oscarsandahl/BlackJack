@@ -13,6 +13,7 @@ class Player {
     var activeBet = 0
     var pointCount = 0
     var cardCount = 0
+    var hand = [Card]()
     
     func resetBet() {
         balance += activeBet
@@ -24,8 +25,17 @@ class Player {
         balance = 0
     }
     
+    func addCardToHand(anyCard : Card) {
+        hand.append(anyCard)
+        cardCount += 1
+        pointCount += anyCard.getCardValue()
+    }
     
-    
-    
+    func reset() {
+        activeBet = 0
+        pointCount = 0
+        cardCount = 0
+        newPlayer.hand.removeAll()
+    }
     
 }

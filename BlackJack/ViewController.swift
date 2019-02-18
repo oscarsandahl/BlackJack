@@ -20,47 +20,42 @@ class ViewController: UIViewController {
     
     @IBAction func blueMarker(_ sender: UIButton) {
         blueMarker.placingBet()
-        updatelabel()
+        updateUI()
     }
-    
     @IBAction func greenMarker(_ sender: UIButton) {
         greenMarker.placingBet()
-        updatelabel()
+        updateUI()
     }
-    
     @IBAction func blackMarker(_ sender: UIButton) {
         blackMarker.placingBet()
-        updatelabel()
+        updateUI()
     }
-    
     @IBAction func allMoney(_ sender: UIButton) {
         newPlayer.betAllMoney()
-        updatelabel()
+        updateUI()
     }
-    
-    @IBOutlet weak var balance: UILabel!
-    
     @IBAction func reset(_ sender: UIButton) {
         newPlayer.resetBet()
-        updatelabel()
+        updateUI()
     }
-    
+    @IBOutlet weak var balance: UILabel!
     @IBOutlet weak var activeBetLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myDeck = Deck()
-        newPlayer.activeBet = 0
-        newPlayer.pointCount = 0
-        newPlayer.cardCount = 0
-        theDealer.pointCount = 0
-        theDealer.cardCount = 0
-        updatelabel()
+        resetValues()
+        updateUI()
     }
     
-    func updatelabel() {
+    func updateUI() {
         activeBetLabel.text = String(newPlayer.activeBet)
         balance.text = String("$\(newPlayer.balance)")
+    }
+    
+    func resetValues() {
+        myDeck = Deck()
+        newPlayer.reset()
+        theDealer.reset()
     }
 
 }
