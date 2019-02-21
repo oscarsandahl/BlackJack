@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  BlackJack
+
+  Created by Oscar Sandahl on 2019-02-19.
+  Copyright © 2019 Oscar Sandahl. All rights reserved.
+*/
+
+"winnerMsg" = "Winner!";
+
+"drawMsg" = "Draw.";
+
+"loserMsg" = "Loser..";

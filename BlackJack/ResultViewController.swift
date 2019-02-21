@@ -16,11 +16,11 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         if segueMessage == 1 {
-            resultLabel.text = "Winner!"
+            resultLabel.text = NSLocalizedString("winnerMsg", comment: "Says Winner")
         } else if segueMessage == 2 {
-            resultLabel.text = "Draw."
+            resultLabel.text = NSLocalizedString("drawMsg", comment: "Says Draw")
         } else if segueMessage == 3 {
-            resultLabel.text = "Loser.."
+            resultLabel.text = NSLocalizedString("loserMsg", comment: "Says Loser")
         }
         
         DispatchQueue.main.asyncAfter(deadline:.now() + 1.5, execute: {
