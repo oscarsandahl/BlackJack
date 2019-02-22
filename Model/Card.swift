@@ -11,7 +11,7 @@ import Foundation
 class Card {
     let suit : String
     let name : String
-    let value : Int
+    var value : Int
     
     init(cardSuit : String, cardName : String, cardValue : Int) {
         suit = cardSuit
@@ -27,7 +27,9 @@ class Card {
         return value
     }
     
-    
+    func setValue(cardValue : Int) {
+        value = cardValue
+    }
     
     
 }

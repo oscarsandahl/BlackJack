@@ -35,6 +35,7 @@ class secondViewController: UIViewController {
             lose()
         }
     }
+    
     @IBAction func stopButton(_ sender: UIButton) {
         while theDealer.pointCount < 22 {
             myDeck.dealOneCard(anyPlayer: theDealer)
