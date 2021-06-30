@@ -7,28 +7,60 @@
 //
 
 import XCTest
+import Quick
+import Nimble
 @testable import BlackJack
 
-class BlackJackTests: XCTestCase {
+class BlackJackTests: QuickSpec {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    override func spec() {
+        var player: Player!
+        var deck: Deck!
+        
+        describe("Player") {
+            beforeEach {
+                player = Player()
+            }
+            
+            context("reset their bet") {
+                it("so active bet should be 0") {
+                    // Arrange
+                    player.activeBet = 20
+                    
+                    // Act
+                    player.resetBet()
+                    
+                    // Assert
+                    expect(player.activeBet) == 0
+                }
+            }
+            
+            context("bet all their money") {
+                it("so balance should be 0") {
+                    player.betAllMoney()
+                    expect(player.balance) == 0
+                }
+            }
+        }
+        
+        describe("Deck of cards") {
+            beforeEach {
+                deck = Deck()
+            }
+            
+            context("that is initialized") {
+                it("should contain 52 cards") {
+                    expect(deck.deckOfCards.count) == 52
+                }
+            }
+            
+            context("dealing one card") {
+                it("should remove 1 card from the deck") {
+                    deck.dealOneCard(anyPlayer: Player())
+                    expect(deck.deckOfCards.count) == 51
+                }
+            }
         }
     }
-
+    
 }
